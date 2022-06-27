@@ -1,0 +1,61 @@
+:root {
+  --app-blue-primary: #053799;
+  --app-blue-dark: #042b78;
+  --app-blue-light: #0848c7;
+  --app-blue-lighter: #5a88e4;
+  --app-yellow: #ffd100;
+  --app-yellow-light: #ffe053;
+  --app-yellow-dark: #e6bc00;
+  --app-orange: #ff6f00;
+  --app-orange-light: #ff9e53;
+  --app-orange-dark: #b44e00;
+}
+
+.bg-blue { background-color: var(--app-blue-primary) }
+.bg-blue-light { background-color: var(--app-blue-light); }
+
+.navbar.app-text-yellow .nav-link { color: var(--app-yellow-dark) }
+
+.float-notifications {
+  position: absolute;
+  bottom: .7rem;
+  right: 1rem;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* OVERIDE */
+.navbar-brand { padding: 0 }
+
+.btn-primary { 
+  background-color: var(--app-blue-primary);
+  border-color: var(--app-blue-primary);
+}
+.btn-primary:hover {
+  background-color: var(--app-blue-light);
+  border-color: var(--app-blue-light);
+}
+ 
+.btn-outline-primary { 
+  border-color: var(--app-blue-primary);
+  color: var(--app-blue-primary);
+}
+.btn-outline-primary:hover {
+  background-color: var(--app-blue-light);
+  border-color: var(--app-blue-light);
+}
+
+.input-validation-valid { border-color: lime}
+.input-validation-error { border-color: crimson}
+.field-validation-error { color: crimson }
+
+.table {
+  --bs-table-hover-color: #212529;
+  --bs-table-hover-bg: rgba(22, 236, 50, 0.075);}
+
+.table-hover > tbody > tr:hover {
+  --bs-table-accent-bg: var(--bs-table-hover-bg);
+  color: var(--bs-table-hover-color);
+}
