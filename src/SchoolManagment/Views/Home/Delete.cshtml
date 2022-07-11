@@ -1,0 +1,27 @@
+@model Student
+@{
+  ViewData["Title"] = "Remove student record";
+}
+
+<div class="container py-3">
+  <h1 class="display-4 mb-4 pb-2 border-bottom">Student Exclusion</h1>
+  <p class="fs-4">
+    You are trying to remove a student record. This action will delete
+    <span class="text-danger underline">@String.Concat(Model.FirstName, " ", Model.LastName)</span>
+    permanently.
+  </p>
+  
+  <form class="row justify-content-end py-4" asp-action="Delete" method="POST">
+    <input type="hidden" asp-for="Id">
+    <div class="col-2 d-grid">
+      <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+    <div class="col-2 d-grid">
+      <button class="btn btn-danger" type="submit">Delete</button>
+    </div>
+  </form>
+</div>
+
+@section icons {
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+}

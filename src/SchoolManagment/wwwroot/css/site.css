@@ -1,0 +1,104 @@
+:root {
+  --app-blue-primary: #053799;
+  --app-blue-dark: #042b78;
+  --app-blue-light: #0848c7;
+  --app-blue-lighter: #5a88e4;
+  --app-yellow: #ffd100;
+  --app-yellow-light: #ffe053;
+  --app-yellow-dark: #e6bc00;
+  --app-orange: #ff6f00;
+  --app-orange-light: #ff9e53;
+  --app-orange-dark: #b44e00;
+}
+
+.bg-blue { background-color: var(--app-blue-primary) }
+.bg-blue-light { background-color: var(--app-blue-light); }
+
+.navbar.app-text-yellow .nav-link { color: var(--app-yellow-dark) }
+
+.float-notifications {
+  position: fixed;
+  bottom: .7rem;
+  right: 1rem;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+/* OVERIDE */
+.navbar-brand { padding: 0 }
+
+.btn-primary { 
+  background-color: var(--app-blue-primary);
+  border-color: var(--app-blue-primary);
+}
+.btn-primary:hover {
+  background-color: var(--app-blue-light);
+  border-color: var(--app-blue-light);
+}
+ 
+.btn-outline-primary { 
+  border-color: var(--app-blue-primary);
+  color: var(--app-blue-primary);
+}
+.btn-outline-primary:hover {
+  background-color: var(--app-blue-light);
+  border-color: var(--app-blue-light);
+}
+
+.input-validation-valid { border-color: lime}
+.input-validation-error { border-color: crimson}
+.field-validation-error { color: crimson }
+
+.table {
+  --bs-table-hover-color: #212529;
+  --bs-table-hover-bg: rgba(22, 236, 50, 0.075);
+}
+
+.table-hover > tbody > tr:hover {
+  --bs-table-accent-bg: var(--bs-table-hover-bg);
+  color: var(--bs-table-hover-color);
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--app-yellow-dark);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: none;
+  }
+}
+.nav-link:hover, .nav-link:focus {
+  color: var(--app-yellow);
+}
+.nav-link.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: default;
+}

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagment", "SchoolManagment\SchoolManagment.csproj", "{B94B2C5F-9A6D-4098-9CDD-353D1595DC5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagment.Tests", "SchoolManagment.Tests\SchoolManagment.Tests.csproj", "{2124C9C8-92F3-4F98-A6B9-FED4FB683EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B94B2C5F-9A6D-4098-9CDD-353D1595DC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B94B2C5F-9A6D-4098-9CDD-353D1595DC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B94B2C5F-9A6D-4098-9CDD-353D1595DC5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2124C9C8-92F3-4F98-A6B9-FED4FB683EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2124C9C8-92F3-4F98-A6B9-FED4FB683EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2124C9C8-92F3-4F98-A6B9-FED4FB683EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2124C9C8-92F3-4F98-A6B9-FED4FB683EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

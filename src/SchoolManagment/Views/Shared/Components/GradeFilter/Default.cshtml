@@ -1,0 +1,15 @@
+@model IOrderedQueryable<SchoolManagment.Enums.GradeLevels>
+
+<a class="btn btn-outline-secondary" asp-action="Index" 
+  asp-controller="Home" asp-route-filter="">
+  None
+</a>
+
+@foreach (var grade in Model)
+{
+  <a class="btn btn-outline-secondary" 
+  asp-action="Index" asp-controller="Home" 
+  asp-route-filter="@grade" asp-route-page="1">
+    @grade.GetDescription()
+  </a>
+}
