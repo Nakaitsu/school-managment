@@ -24,18 +24,22 @@ namespace SchoolManagment.Models
     [Column(TypeName = "Date")]
     public DateTime Birthdate { get; set; }
     
-    public GradeLevels GradeLevels { get; set; }
+    public GradeLevels GradeLevel { get; set; }
     
-    public DateTime EnrollmentDate { get; } = DateTime.Now;
+    public DateTime EnrollmentDate { get; set; }
 
-    public Student(string firstName, string lastName, DateTime birthdate, GradeLevels grade)
+    public ICollection<Enrollment> Enrollments { get; set; }
+
+    public Student(string firstName, string lastName, DateTime birthdate, GradeLevels gradeLevel)
     {
       FirstName = firstName;
       LastName = lastName;
       Birthdate = birthdate;
-      GradeLevels = grade;
+      GradeLevel = gradeLevel;
     }
 
-    public Student() {}
+    public Student() 
+    {
+    }
   }
 }

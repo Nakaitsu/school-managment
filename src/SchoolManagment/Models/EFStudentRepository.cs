@@ -25,6 +25,7 @@ namespace SchoolManagment.Models
       }
       else
       {
+        student.EnrollmentDate = DateTime.Now;
         await _context.AddAsync(student);
       }
 

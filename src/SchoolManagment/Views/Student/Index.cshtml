@@ -1,0 +1,145 @@
+﻿@model SummaryViewModel
+@{
+  ViewData["Title"] = "Student summary";
+}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 bg-light py-3">
+      <h2 class="mb-3">Filters</h2>
+
+      <ul class="list-group">
+        <vc:grade-filter />
+      </ul>
+
+    </div>
+
+    <div class="col-10 pt-3">
+      <h1 class="display-4 mb-4 pb-2 border-bottom">Student List</h1>
+
+      <div class="controls py-2 mb-3 row">
+
+        <div class="col-auto">
+          <a class="btn btn-primary" asp-action="Create">Add new student</a>
+        </div>
+
+        <div class="col-6">
+          <form class="row" asp-action="Index" asp-controller="Student" asp-route-page="1" method="GET">
+            <div class="col-9">
+              <label class="visually-hidden" for="search">Search</label>
+              <input class="form-control" id="search" name="search" type="Search" placeholder="Find a student record">
+            </div>
+
+            <div class="col-3">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      @if (Model.SearchString != null || Model.Filter != null)
+      {
+        <div class="mb-3">
+
+          @if (Model.SearchString != null)
+          {
+            <span class="badge bg-secondary">
+              @Model.SearchString
+              <a asp-action="" asp-route-search="">
+                <i class="px-1 bi-x text-white"></i>
+              </a>
+            </span>
+          }
+
+          @if (Model.Filter != null)
+          {
+            <span class="badge bg-secondary">
+              @Model.Filter
+              <a asp-action="" asp-route-search="">
+                <i class="px-1 bi-x text-white"></i>
+              </a>
+            </span>
+          }
+
+        </div>
+
+        <p>Found: @Model.PagingInfo.TotalItems matching the search</p>
+      }
+
+      <div class="scroll-x">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Birthdate</th>
+              <th scope="col">Grade Level</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @if (Model.Items.Count() != 0)
+            {
+              @foreach (var s in Model.Items)
+              {
+                <tr>
+                  <th scope="row">@s.Id</th>
+                  <td>@s.FirstName</td>
+                  <td>@s.LastName</td>
+                  <td>@s.Birthdate.GetAge()</td>
+                  <td>@s.Birthdate.ToShortDateString()</td>
+                  <td>@s.GradeLevel.GetDescription()</td>
+                  <td>@s.Email</td>
+                  <td>@s.Phone</td>
+                  <td class="text-center">
+                    <div class="dropend">
+                      <span class="bi bi-three-dots-vertical px-1" type="button" id="dropdownMenuButton1" title="Options"
+                    data-bs-toggle="dropdown">
+                      </span>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a class="dropdown-item" asp-action="Info" asp-route-id="@s.Id">Details</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" asp-action="Edit" asp-route-id="@s.Id">Edit</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" asp-action="Delete" asp-route-id="@s.Id">Remove</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+            else
+            {
+              <tr class="table-warning">
+                <td colspan="2">
+                  <i class="bi bi-exclamation-triangle-fill"></i>
+                </td>
+                <td class="text-center fw-bold" colspan="4">No records found</td>
+                <td colspan="3"></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <partial name="Pagination" model="@Model" />
+      </div>
+    </div>
+  </div>
+</div>
+
+@section icons {
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+}

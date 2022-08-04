@@ -5,13 +5,13 @@ namespace SchoolManagment.Enums
 {
   public enum GradeLevels
   {
-    [Display(Name = "Pre-Kindergarden")]
-    [Description("Pre-Kindergarden")]
-    PreKindergarden = 1,
+    [Display(Name = "Pre-Kindergarten")]
+    [Description("Pre-Kindergarten")]
+    PreKindergarten = 1,
 
-    [Display(Name = "Kindergarden")]
-    [Description("Kindergarden")]
-    Kindergarden = 2,
+    [Display(Name = "Kindergarten")]
+    [Description("Kindergarten")]
+    Kindergarten = 2,
 
     [Display(Name = "1st Grade")]
     [Description("1st")]

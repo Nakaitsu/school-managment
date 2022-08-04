@@ -31,7 +31,7 @@ namespace SchoolManagment.Tests
         GradeLevels.Second);
 
       // When
-      var result = student.GradeLevels.GetDescription();
+      var result = student.GradeLevel.GetDescription();
     
       // Then
       Assert.Equal(typeof(String), result.GetType());

@@ -15,7 +15,7 @@ namespace SchoolManagment.Components
     public IViewComponentResult Invoke()
     {
       return View(_repository.Students
-        .Select(s => s.GradeLevels)
+        .Select(s => s.GradeLevel)
         .Distinct()
         .OrderBy(s => s));
     }
