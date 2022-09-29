@@ -14,7 +14,7 @@
 <body class="d-flex flex-column vh-100">
   <header>
     <nav class="navbar navbar-expand-md bg-blue">
-      <div class="container-fluid">
+      <div class="container-fluid"> <!-- Navbar seguido de um container, elementos nao sao flex items-->
 
         <a class="navbar-brand text-light" asp-controller="Home" asp-action="Index">
           <img src="~/img/bw-brand.png" alt="Bullworth logo">
@@ -49,6 +49,10 @@
           </ul>
         </div>
 
+        <div>
+          <a class="ContactUs">Contact Us</a>
+        </div>
+
       </div>
     </nav>
   </header>
@@ -73,7 +77,6 @@
             @notification.Message
           </div>
         </div>
-
       </div>
     }
   </main>

@@ -4,17 +4,7 @@
 }
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-2 bg-light py-3">
-      <h2 class="mb-3">Filters</h2>
 
-      <ul class="list-group">
-        <vc:grade-filter />
-      </ul>
-
-    </div>
-
-    <div class="col-10 pt-3">
       <h1 class="display-4 mb-4 pb-2 border-bottom">Student List</h1>
 
       <div class="controls py-2 mb-3 row">
@@ -40,7 +30,7 @@
 
       </div>
 
-      @if (Model.SearchString != null || Model.Filter != null)
+      @if (Model.SearchString != null)
       {
         <div class="mb-3">
 
@@ -48,16 +38,6 @@
           {
             <span class="badge bg-secondary">
               @Model.SearchString
-              <a asp-action="" asp-route-search="">
-                <i class="px-1 bi-x text-white"></i>
-              </a>
-            </span>
-          }
-
-          @if (Model.Filter != null)
-          {
-            <span class="badge bg-secondary">
-              @Model.Filter
               <a asp-action="" asp-route-search="">
                 <i class="px-1 bi-x text-white"></i>
               </a>
@@ -78,9 +58,7 @@
               <th scope="col">Last Name</th>
               <th scope="col">Age</th>
               <th scope="col">Birthdate</th>
-              <th scope="col">Grade Level</th>
               <th scope="col">Email</th>
-              <th scope="col">Phone</th>
               <th scope="col" class="text-center">Actions</th>
             </tr>
           </thead>
@@ -95,9 +73,7 @@
                   <td>@s.LastName</td>
                   <td>@s.Birthdate.GetAge()</td>
                   <td>@s.Birthdate.ToShortDateString()</td>
-                  <td>@s.GradeLevel.GetDescription()</td>
                   <td>@s.Email</td>
-                  <td>@s.Phone</td>
                   <td class="text-center">
                     <div class="dropend">
                       <span class="bi bi-three-dots-vertical px-1" type="button" id="dropdownMenuButton1" title="Options"
@@ -136,8 +112,6 @@
       <div class="d-flex justify-content-center">
         <partial name="Pagination" model="@Model" />
       </div>
-    </div>
-  </div>
 </div>
 
 @section icons {

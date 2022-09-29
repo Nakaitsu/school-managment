@@ -43,24 +43,11 @@
             <span asp-validation-for="Email"></span>
           </div>
   
-          <div class="col-4 mb-3">
-            <label class="form-label ms-2" asp-for="Phone">Phone</label>
-            <input class="form-control" asp-for="Phone">
-            <span asp-validation-for="Phone"></span>
-          </div>
   
-          <div class="col-3 mb-3">
+          <div class="col-4 mb-3">
             <label class="form-label ms-2" asp-for="Birthdate">Birthdate</label>
             <input class="form-control" min="1950-01-01" max="@(DateTime.Now.Date.ToString("yyyy-MM-dd"))" asp-for="Birthdate">
             <span asp-validation-for="Birthdate"></span>
-          </div>
-  
-          <div class="col-5 mb-3">
-            <label class="form-label ms-2" asp-for="GradeLevel">Grade Level</label>
-            <select class="form-select" asp-items="Html.GetEnumSelectList<GradeLevels>()" asp-for="GradeLevel">
-              <option value="">Choose one grade level</option>
-            </select>
-            <span asp-validation-for="GradeLevel"></span>
           </div>
   
           <div class="col-12 mt-5">

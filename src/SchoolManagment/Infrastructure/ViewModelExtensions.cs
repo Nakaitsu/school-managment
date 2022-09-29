@@ -12,11 +12,9 @@ namespace SchoolManagment.Infrastructure
         viewModel.FirstName,
         viewModel.LastName,
         viewModel.Birthdate,
-        (GradeLevels)viewModel.GradeLevel!
       );
 
       student.Email = viewModel?.Email;
-      student.Phone = viewModel?.Phone;
 
       return student;
     }

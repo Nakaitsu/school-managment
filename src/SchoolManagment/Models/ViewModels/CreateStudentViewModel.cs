@@ -18,15 +18,9 @@ namespace SchoolManagment.Models.ViewModels
     [StringLength(70)]
     public string? Email { get; set; }
 
-    [Phone(ErrorMessage = "Enter a valid phone number")]
-    public string? Phone { get; set; }
-
     [Required(ErrorMessage = "You must specify the student's age")]
     [DataType(DataType.Date)]
     [ValidateDate]
     public DateTime Birthdate { get; set; }
-
-    [Required(ErrorMessage = "This field is required")]
-    public GradeLevels? GradeLevel { get; set; }
   }
 }

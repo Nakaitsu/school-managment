@@ -44,20 +44,9 @@
             <input class="form-control" asp-for="Email" autocomplete="off">
           </div>
   
-          <div class="col-4 mb-3">
-            <label class="form-label ms-2" asp-for="Phone">Phone</label>
-            <input class="form-control" asp-for="Phone">
-          </div>
-  
           <div class="col-3 mb-3">
             <label class="form-label ms-2" asp-for="Birthdate">Birthdate</label>
             <input class="form-control" min="1950-01-01" max="@(DateTime.Now.ToString("yyyy-MM-dd"))" asp-for="Birthdate">
-          </div>
-  
-          <div class="col-5 mb-3">
-            <label class="form-label ms-2" asp-for="GradeLevel">Grade Level</label>
-            <select class="form-select" asp-items="Html.GetEnumSelectList<GradeLevels>()" asp-for="GradeLevel">
-            </select>
           </div>
   
           <div class="col-12 mt-5">

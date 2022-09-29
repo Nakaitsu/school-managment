@@ -17,7 +17,7 @@ public class StudentController : Controller
     _repository = repo;
   }
 
-  public ViewResult Index(string? search, string? filter, int page = 1)
+  public ViewResult Index(string? search, int page = 1)
   {
     var result = _repository.Students;
     
@@ -27,12 +27,6 @@ public class StudentController : Controller
         .Where(s => s.FirstName.Contains(search) || 
           s.LastName.Contains(search) || 
           (!String.IsNullOrEmpty(s.Email) && s.Email.Contains(search)));
-
-      if(!String.IsNullOrEmpty(filter))
-      {
-        result = result
-          .Where(s => s.GradeLevel == Enum.Parse<Enums.GradeLevels>(filter));      
-      }
 
       return View(new SummaryViewModel {
         Items = result
@@ -44,15 +38,8 @@ public class StudentController : Controller
           ItemsPerPage = PageItems,
           TotalItems = result.Count()
         },
-        Filter = filter,
         SearchString = search
       });
-    }
-
-    if(!String.IsNullOrEmpty(filter))
-    {
-      result = result
-        .Where(s => s.GradeLevel == Enum.Parse<Enums.GradeLevels>(filter));
     }
 
     return View(new SummaryViewModel {
@@ -65,7 +52,6 @@ public class StudentController : Controller
         ItemsPerPage = PageItems,
         TotalItems = result.Count()
       },
-      Filter = filter,
       SearchString = search
     });
   }
