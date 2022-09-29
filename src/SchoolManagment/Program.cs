@@ -23,11 +23,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute("SummaryFilterAndPage",
-  "{filter}/Page{page:int}");
+  "{controller}/{action}/{filter}/Page{page:int}");
 
-app.MapControllerRoute("SummaryPage", "Page{page:int}");
+app.MapControllerRoute("SummaryPage",
+  "{controller}/{action}/Page{page:int}");
 
-app.MapControllerRoute("Filter", "{filter}");
+app.MapControllerRoute("Filter",
+  "{controller}/{action}/{filter}");
 
 app.MapControllerRoute("Default",
   "{controller}/{action}/{id}",
