@@ -16,12 +16,10 @@ namespace SchoolManagment.Models
     public Student(string firstName, string lastName, DateTime birthdate) 
       : base(firstName, lastName, birthdate) 
     {
-      EnrollmentDate = DateTime.Now;
     }
 
     public Student()
     {
-      EnrollmentDate = DateTime.Now;
     }
   }
 }

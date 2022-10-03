@@ -68,7 +68,7 @@ public class StudentController : Controller
   {
     if (ModelState.IsValid)
     {
-      await _repository.SaveAsync(model.ToStudent());
+      await _repository.SaveAsync(model.ToStudent()); // turar esse metodo
       TempData.SetJson<Notification>("Notifications",
 
         new Notification(
@@ -106,9 +106,9 @@ public class StudentController : Controller
     await _repository.SaveAsync(student);
     TempData.SetJson<Notification>("Notifications",
       new Notification(
-          "List Updated",
-          "A student record was been updated",
-          "Success"));
+        "List Updated",
+        "A student record was been updated",
+        "Success"));
     return RedirectToAction(nameof(Index));
   }
 
