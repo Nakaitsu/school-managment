@@ -1,3 +1,72 @@
+.cover {
+  height: 100vh;
+  width: 100%;
+
+  background-image: url(../img/home-cover.jpg);
+  background-size: cover;
+}
+
+.cover-filter {
+  height: 100%;
+  width: 100%;
+}
+
+.cover-content {
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+}
+
+.cover-text,
+.cover-form {
+  align-self: center;
+}
+
+.cover-text {
+  flex-basis: 60%;
+
+  color: white;
+}
+
+.cover-text > p {
+  line-height: 2.1;
+}
+
+.cover-form {
+  flex-basis: 40%;
+}
+
+.cover > .cover-filter {
+  backdrop-filter: brightness(35.5%) grayscale(20%);
+}
+
+.cover-form > .form {
+  background-color: white;
+  padding: 3rem;
+}
+
 .course {
-  background-color: rgb(183, 247, 225);
+  box-shadow: -6px 9px 40px -17px rgba(0,0,0,0.46);
+}
+
+.course:hover {
+  transform: scale(1.02) translateY(-3px);
+}
+
+.course-illustration {
+  max-width: 100%;
+}
+
+.navbar[data-position="absolute"] {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-alpha {
+  background-color: transparent;
+}
+
+.highlights {
+  padding: 7rem 0;
 }

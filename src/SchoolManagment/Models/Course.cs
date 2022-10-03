@@ -7,5 +7,7 @@ namespace SchoolManagment.Models
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int CourseID { get; set; }
     public string Title { get; set; }
+    public string? Description { get; set; }
+    public string? ImagePath { get; set; }
   }
 }

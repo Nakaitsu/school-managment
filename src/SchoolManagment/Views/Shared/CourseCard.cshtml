@@ -1,0 +1,21 @@
+@model Course
+
+<div class="mb-2 col-md-4">
+  <div class="course pb-2">
+
+    <div class="course-illustration mb-2">
+      <img src="@Url.Content(Model.ImagePath)" alt="course banner" class="img-fluid">
+    </div>
+
+    <div class="course-description px-3">
+      <p class="fw-bold text-uppercase text-blue">@Model.Title</p>
+
+      <p class="description py-2">
+        @Model.Description
+      </p>
+
+      <a class="btn btn-outline-primary" asp-controller="Courses" asp-action="Details">View Course</a>
+    </div>
+
+  </div>
+</div>

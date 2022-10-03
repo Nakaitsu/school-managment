@@ -1,37 +1,64 @@
-<div class="banner mb-3"></div>
+@model IEnumerable<Course>
+@{
+  ViewData["Title"] = "Welcome to Bullworth Academy";
+}
 
-<div class="highlights container">
-  <h2 class="h1 text-uppercase mb-3">highlights courses</h2>
+<div class="cover mb-3">
+  <div class="cover-filter">
+
+    <div class="container cover-content">
+
+      <div class="cover-text">
+
+        <h2 class="h1 mb-5 fw-bold">The complete education schedule for you</h2>
+        <p class="mb-5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur recusandae id perferendis ipsa
+          nulla, ab
+          ratione. Facere odit deleniti a repellat voluptates harum animi, tempora, maxime ea, eligendi nobis!
+        </p>
+
+        <a href="#" class="btn btn-primary btn-lg">Enroll now</a>
+      </div>
+
+      <div class="cover-form">
+        <form class="form rounded-3" asp-controller="User" asp-action="SignIn" method="post">
+
+          <h2 class="mb-4">Sign In</h2>
+
+          <div class="form-floating mb-1">
+            <input type="login" name="Login" class="form-control" id="login" placeholder="Login">
+            <label for="login">Login</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" name="Password" class="form-control" id="password" placeholder="secret">
+            <label for="password">Password</label>
+          </div>
+
+          <p class="mt-2">Don't have an account? <a asp-controller="User" asp-action="SignUp">SignUp</a>!</p>
+
+          <button class="btn btn-outline-primary btn-lg mt-4">Connect</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-<div class="container">
+<div class="highlights container">
+
+  <h2 class="h1 text-uppercase mb-3">highlights courses</h2>
+
   <div class="row">
 
     <div class="courses col-10">
       <div class="row gx-2">
 
-        @for (int i = 1; i <= 6; i++)
+        @foreach(Course course in Model)
         {
-          <div class="mb-2 col-md-4">
-            <div class="course pb-2">
-
-              <div class="course-illustration mb-2">
-                <img src="https://dummyimage.com/380x240/000200/acacac" alt="course banner" class="img-fluid">
-              </div>
-
-              <div class="course-description px-2">
-                <p class="fw-bold text-uppercase">Course 0@(i)</p>
-
-                <p class="text-justify">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quo sequi nemo sint, repudiandae excepturi
-                  facilis dolor vel impedit illo officiis eaque nisi asperiores magni! Ad dolorem nihil quasi hic?
-                </p>
-
-                <a href="#" class="btn btn-outline-primary">View Course</a>
-              </div>
-
-            </div>
-          </div>
+          <partial name="CourseCard" model="course"></partial>
         }
 
       </div>
@@ -52,6 +79,10 @@
   </div>
 </div>
 
-@section RequiredCss{
+@section RequiredCss {
 <link rel="stylesheet" href="~/css/home.css">
+}
+
+@section scripts {
+  <script src="~/js/navbar.js"></script>
 }

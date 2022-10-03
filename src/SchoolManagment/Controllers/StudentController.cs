@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SchoolManagment.Infrastructure;
+using SchoolManagment.Helpers;
 using SchoolManagment.Models;
 using SchoolManagment.Models.ViewModels;
 
@@ -9,17 +9,17 @@ namespace SchoolManagment.Controllers;
 
 public class StudentController : Controller
 {
-  private IStudentRepository _repository;
+  private readonly ISchoolRepository<Student> _repository;
   public int PageItems = 10;
 
-  public StudentController(IStudentRepository repo)
+  public StudentController(ISchoolRepository<Student> repo)
   {
     _repository = repo;
   }
 
   public ViewResult Index(string? search, int page = 1)
   {
-    var result = _repository.Students;
+    var result = _repository.Items;
     
     if (!String.IsNullOrEmpty(search))
     {
@@ -135,7 +135,7 @@ public class StudentController : Controller
 
   public ViewResult Info(int id)
   {
-    return View("Details", _repository.Students
+    return View("Details", _repository.Items
       .Include(s => s.Enrollments)
         .ThenInclude(e => e.Course)
       .AsNoTracking()

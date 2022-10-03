@@ -1,15 +1,25 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SchoolManagment.Models
 {
-    public class User 
-    {
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public UserType UserType { get; set; }
-    }
-}
+  public class User
+  {
+    public string Login { get; set; }
+    public string Password { get; set; }
 
-enum UserType
-{
-    Client, Admin
+    [StringLength(70)]
+    public string Email { get; set; }
+    public UserRole Role { get; set; }
+
+    public User(string login, string password)
+    {
+      Login = login;
+      Password = password;
+    }
+  }
+
+  public enum UserRole
+  {
+    Student, Teacher, Admin 
+  }
 }

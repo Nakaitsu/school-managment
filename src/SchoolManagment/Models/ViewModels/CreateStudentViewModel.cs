@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using SchoolManagment.Enums;
-using SchoolManagment.Infrastructure;
+using SchoolManagment.Helpers;
 
 namespace SchoolManagment.Models.ViewModels
 {

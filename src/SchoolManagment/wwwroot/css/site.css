@@ -9,6 +9,7 @@
   --app-orange: #ff6f00;
   --app-orange-light: #ff9e53;
   --app-orange-dark: #b44e00;
+  --app-gray: #ececec;
 }
 
 .bg-blue { background-color: var(--app-blue-primary) }
@@ -32,6 +33,31 @@
 
 .scroll-x {
   overflow-x: auto;
+}
+
+.text-blue {
+  color: var(--app-blue-primary);
+}
+
+.form-header {
+  border-bottom: 2px solid var(--app-blue-primary);
+}
+
+.form-field {
+  padding: 1rem 0 3rem;
+}
+
+.form-field-gray {
+  background: linear-gradient(45deg, #cacaca 0%,#dad9d9 39%,#dad8d8 74%,#ececec 100%);;
+}
+
+.form-legend {
+  font-size: 1.9rem;
+  padding: 1.5rem 0;
+}
+
+.form-title {
+  font-size: 2.755rem;
 }
 
 /* OVERIDE */

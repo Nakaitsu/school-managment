@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   public static class EnumExtensions
   {

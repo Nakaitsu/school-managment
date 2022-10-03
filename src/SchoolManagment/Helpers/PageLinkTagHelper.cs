@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using SchoolManagment.Models.ViewModels;
 
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   [HtmlTargetElement("div", Attributes = "page-model")]
   public class PageLinkTagHelper : TagHelper

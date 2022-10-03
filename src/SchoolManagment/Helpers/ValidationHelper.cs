@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   public class MinValueAttribute : ValidationAttribute
   {

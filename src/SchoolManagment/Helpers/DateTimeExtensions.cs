@@ -1,4 +1,4 @@
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   public static class DateTimeExtensions
   {

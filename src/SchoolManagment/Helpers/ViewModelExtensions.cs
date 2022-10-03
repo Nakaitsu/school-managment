@@ -1,8 +1,7 @@
-using SchoolManagment.Enums;
 using SchoolManagment.Models;
 using SchoolManagment.Models.ViewModels;
 
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   public static class CreateStudent
   {
@@ -11,7 +10,7 @@ namespace SchoolManagment.Infrastructure
       var student = new Student(
         viewModel.FirstName,
         viewModel.LastName,
-        viewModel.Birthdate,
+        viewModel.Birthdate
       );
 
       student.Email = viewModel?.Email;

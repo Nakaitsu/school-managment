@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace SchoolManagment.Infrastructure
+namespace SchoolManagment.Helpers
 {
   public static class TempDataHelper
   {

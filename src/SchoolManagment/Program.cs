@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SchoolManagment.Interfaces;
 using SchoolManagment.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,14 @@ builder.Services.AddDbContext<SchoolDbContext>(opts => {
     builder.Configuration["ConnectionStrings:SchoolDbConnection"]
   );
 });
-builder.Services.AddScoped<IStudentRepository, EFStudentRepository>();
+builder.Services.AddScoped<ISchoolRepository<Student>, EFStudentRepository>();
+builder.Services.AddScoped<ISchoolRepository<Course>, EFCourseRepository>();
+builder.Services.AddScoped<IUserSession, UserSession>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSession(config => {
+  config.Cookie.HttpOnly = true;
+  config.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -21,6 +29,9 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute("SummaryFilterAndPage",
   "{controller}/{action}/{filter}/Page{page:int}");

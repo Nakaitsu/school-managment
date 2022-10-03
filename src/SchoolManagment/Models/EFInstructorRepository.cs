@@ -2,31 +2,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SchoolManagment.Models
 {
-  public class EFStudentRepository : ISchoolRepository<Student>
+  public class EFInstructorRepository : ISchoolRepository<Student>
   {
     private readonly SchoolDbContext _context;
 
-    public IQueryable<Student> Items => _context.Students.AsNoTracking();
+    public IQueryable<Student> Items => _context.Teachers.AsNoTracking();
 
-    public EFStudentRepository(SchoolDbContext ctx)
+    public EFInstructorRepository(SchoolDbContext ctx)
     {
       _context = ctx;
     }
 
-    public async Task SaveAsync(Student student)
+    public async Task SaveAsync(Student teacher)
     {
-      if(_context.Students.Any(s => s.Id == student.Id);
+      if(_context.Teachers.Any(t => teacher.Id == teacher.Id))
       {
-        var result = await _context.Students
-          .AsNoTracking().FirstOrDefaultAsync(s => s.Id == student.Id);
+        var result = await Items.FirstOrDefaultAsync(s => s.Id == teacher.Id);
           
         if(result != null)
-          _context.Students.Update(student);
+          _context.Students.Update(teacher);
       }
       else
       {
-        student.EnrollmentDate = DateTime.Now;
-        await _context.AddAsync(student);
+        await _context.AddAsync(teacher);
       }
 
       await _context.SaveChangesAsync();

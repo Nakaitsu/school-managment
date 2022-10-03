@@ -19,27 +19,21 @@ namespace SchoolManagment.Models
             FirstName = "Karl",
             LastName = "Branting",
             Email = "karl@email.com",
-            Phone = "11123412345",
             Birthdate = DateTime.Parse("05-05-2010"),
-            GradeLevel = Enums.GradeLevels.Second,
             EnrollmentDate = DateTime.Parse("21-04-2012")
           },
           new Student {
             FirstName = "Angie",
             LastName = "Northrop",
             Email = "angel@email.com",
-            Phone = "15223412345",
             Birthdate = DateTime.Parse("01-08-2011"),
-            GradeLevel = Enums.GradeLevels.Fifth,
             EnrollmentDate = DateTime.Parse("23-01-2013")
           },
           new Student {
             FirstName = "Pedro",
             LastName = "De La Hoya",
             Email = "elpedro@email.com",
-            Phone = "15223483457",
             Birthdate = DateTime.Parse("23-12-2011"),
-            GradeLevel = Enums.GradeLevels.Kindergarten,
             EnrollmentDate = DateTime.Parse("15-08-2013")
           },
           new Student {
@@ -47,7 +41,6 @@ namespace SchoolManagment.Models
             LastName = "Gurney",
             Email = "tom22@email.com",
             Birthdate = DateTime.Parse("17-03-2007"),
-            GradeLevel = Enums.GradeLevels.Second,
             EnrollmentDate = DateTime.Parse("27-09-2010")
           },
           new Student {
@@ -55,7 +48,6 @@ namespace SchoolManagment.Models
             LastName = "Hopkins",
             Email = "jimmyhopkins_29@email.com",
             Birthdate = DateTime.Parse("01-02-2009"),
-            GradeLevel = Enums.GradeLevels.Ninth,
             EnrollmentDate = DateTime.Parse("02-01-2010")
           },
           new Student {
@@ -63,7 +55,6 @@ namespace SchoolManagment.Models
             LastName = "Pound",
             Email = "eunice@email.com",
             Birthdate = DateTime.Parse("14-05-2004"),
-            GradeLevel = Enums.GradeLevels.Seventh,
             EnrollmentDate = DateTime.Parse("23-10-2009")
           },
           new Student {
@@ -71,7 +62,6 @@ namespace SchoolManagment.Models
             LastName = "Romano",
             Email = "peanut2_3@email.com",
             Birthdate = DateTime.Parse("16-04-2012"),
-            GradeLevel = Enums.GradeLevels.Eighth,
             EnrollmentDate = DateTime.Parse("13-03-2015")
           },
           new Student {
@@ -79,16 +69,13 @@ namespace SchoolManagment.Models
             LastName = "Jackson",
             Email = "gloriaj733@email.com",
             Birthdate = DateTime.Parse("09-05-2010"),
-            GradeLevel = Enums.GradeLevels.Fourth,
             EnrollmentDate = DateTime.Parse("10-04-2012")
           },
           new Student {
             FirstName = "Zoe",
             LastName = "Taylor",
             Email = "ztaylor8@email.com",
-            Phone = "09426718931",
             Birthdate = DateTime.Parse("22-11-2009"),
-            GradeLevel = Enums.GradeLevels.Tenth,
             EnrollmentDate = DateTime.Parse("20-07-2010")
           },
           new Student {
@@ -96,7 +83,6 @@ namespace SchoolManagment.Models
             LastName = "Thompson",
             Email = "shell@email.com",
             Birthdate = DateTime.Parse("26-09-2007"),
-            GradeLevel = Enums.GradeLevels.PreKindergarten,
             EnrollmentDate = DateTime.Parse("18-01-2008")
           },
           new Student {
@@ -104,7 +90,6 @@ namespace SchoolManagment.Models
             LastName = "Vendome",
             Email = "gordven0291@email.com",
             Birthdate = DateTime.Parse("27-04-2011"),
-            GradeLevel = Enums.GradeLevels.Third,
             EnrollmentDate = DateTime.Parse("26-07-2012")
           },
           new Student {
@@ -112,7 +97,6 @@ namespace SchoolManagment.Models
             LastName = "White",
             Email = "d2white@email.com",
             Birthdate = DateTime.Parse("20-05-2007"),
-            GradeLevel = Enums.GradeLevels.Sixth,
             EnrollmentDate = DateTime.Parse("13-03-2010")
           },
           new Student {
@@ -120,7 +104,6 @@ namespace SchoolManagment.Models
             LastName = "Wiles",
             Email = "mandyw9ile7@email.com",
             Birthdate = DateTime.Parse("06-06-2008"),
-            GradeLevel = Enums.GradeLevels.Eleventh,
             EnrollmentDate = DateTime.Parse("12-05-2010")
           },
           new Student {
@@ -128,7 +111,6 @@ namespace SchoolManagment.Models
             LastName = "Williams",
             Email = "n7will@email.com",
             Birthdate = DateTime.Parse("12-11-2012"),
-            GradeLevel = Enums.GradeLevels.Twelfth,
             EnrollmentDate = DateTime.Parse("10-02-2014")
           }
         );
@@ -139,22 +121,70 @@ namespace SchoolManagment.Models
       if(!context.Courses.Any())
       {
         context.Courses.AddRange(
-          new Course { CourseID = 1022, Title = "Chemistry" },
-          new Course { CourseID = 1075, Title = "Art" },
-          new Course { CourseID = 4080, Title = "History" },
-          new Course { CourseID = 3095, Title = "Biology" },
-          new Course { CourseID = 1030, Title = "Photography" },
-          new Course { CourseID = 2010, Title = "Shop" },
-          new Course { CourseID = 4070, Title = "Math" },
-          new Course { CourseID = 3021, Title = "Geography" },
-          new Course { CourseID = 1047, Title = "English" },
-          new Course { CourseID = 3011, Title = "Gym" },
-          new Course { CourseID = 5009, Title = "Home Economics" },
-          new Course { CourseID = 4037, Title = "Music" }
+          new Course { 
+            CourseID = 1022,
+            Title = "Chemistry",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, repellat nam odit, sapiente alias esse cupiditate, fugiat doloribus voluptates ullam numquam itaque perspiciatis inventore quas odio. Quis soluta libero impedit.",
+            ImagePath = "~/img/courses/chemistry.jpg"},
+          new Course { 
+            CourseID = 1075,
+            Title = "Art",
+            Description = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum ab culpa suscipit pariatur officia. Inventore obcaecati alias aliquam a amet eum quod ea similique repellat? Repellendus praesentium voluptatum impedit assumenda.",
+            ImagePath = "~/img/courses/art.jpg" },
+          new Course { 
+            CourseID = 4080,
+            Title = "History",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt exercitationem eveniet accusamus magni eius corporis ipsa at neque ad minima impedit quia, eaque maxime expedita nulla odio quae quasi excepturi.",
+            ImagePath = "~/img/courses/history.jpg" },
+          new Course { 
+            CourseID = 3095,
+            Title = "Biology",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam laudantium ipsa, deleniti qui harum debitis accusamus sequi doloremque quibusdam voluptate? Velit error enim necessitatibus vero dolores laborum quam ut delectus.",
+            ImagePath = "~/img/courses/biology.jpg"},
+          new Course { 
+            CourseID = 1030,
+            Title = "Photography",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore aliquid fuga id, soluta incidunt fugiat blanditiis quas enim accusamus illo tempore a quia, earum, maxime nemo tenetur? Consequatur, aliquam tempore.",
+            ImagePath = "~/img/courses/photography.jpg" },
+          new Course { 
+            CourseID = 2010,
+            Title = "Shop",
+            Description = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non obcaecati fugit optio corporis esse modi voluptates reiciendis maiores id autem, molestias rerum ipsam facilis cumque consequatur similique laudantium nobis sed.",
+            ImagePath = "~/img/courses/shop.jpg" },
+          new Course { 
+            CourseID = 4070,
+            Title = "Math",
+            Description = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus, inventore temporibus! Minus reiciendis culpa, dignissimos excepturi ad ipsam molestiae, optio necessitatibus assumenda aspernatur distinctio expedita. Placeat soluta iure similique veniam.",
+            ImagePath = "~/img/courses/math.jpg"},
+          new Course { 
+            CourseID = 3021,
+            Title = "Geography",
+            Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est cum quasi quod molestias autem assumenda, cumque quae accusantium quia repudiandae temporibus, quam eos illo adipisci nesciunt earum natus. Totam, eaque.",
+            ImagePath = "~/img/courses/geography.jpg" },
+          new Course { 
+            CourseID = 1047,
+            Title = "English",
+            Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, sapiente. Voluptatibus repellendus officia voluptates doloremque voluptatem maxime beatae pariatur minima suscipit rem consequatur, voluptatum et. Rerum itaque corporis harum exercitationem!",
+            ImagePath = "~/img/courses/english.jpg"},
+          new Course { 
+            CourseID = 3011,
+            Title = "Gym",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis fugiat sed soluta perspiciatis consectetur sapiente sunt animi, labore amet corporis eaque aperiam vel modi. Quo aliquid corrupti quam doloremque ullamk.",
+            ImagePath = "~/img/courses/gym.jpg" },
+          new Course { 
+            CourseID = 5009,
+            Title = "Home Economics",
+            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sit qui voluptates magni blanditiis amet pariatur quibusdam illum quisquam tempore sed error quis voluptatem necessitatibus praesentium, officia, nostrum dicta consequatur.",
+            ImagePath = "~/img/courses/home-economics.jpg"},
+          new Course { 
+            CourseID = 4037,
+            Title = "Music",
+            Description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint beatae ratione ad dicta atque laudantium voluptas velit quo minima adipisci aspernatur provident perferendis quas ab placeat, mollitia voluptate officia nemo!",
+            ImagePath = "~/img/courses/music.jpg" }
         );
 
         context.SaveChanges();
-       }
+      }
 
       if(!context.Enrollments.Any())
       {
