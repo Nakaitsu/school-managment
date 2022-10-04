@@ -15,7 +15,7 @@ namespace SchoolManagment.Models
 
     public async Task SaveAsync(Student student)
     {
-      if(_context.Students.Any(s => s.Id == student.Id);
+      if(_context.Students.Any(s => s.Id == student.Id))
       {
         var result = await _context.Students
           .AsNoTracking().FirstOrDefaultAsync(s => s.Id == student.Id);

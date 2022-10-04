@@ -6,22 +6,22 @@ namespace SchoolManagment.Models
   {
     private readonly SchoolDbContext _context;
 
-    public IQueryable<Teacher> Items => _context.Teacher.AsNoTracking();
+    public IQueryable<Teacher> Items => _context.Teachers.AsNoTracking();
 
-    public EFStudentRepository(SchoolDbContext ctx)
+    public EFTeacherRepository(SchoolDbContext ctx)
     {
       _context = ctx;
     }
 
     public async Task SaveAsync(Teacher teacher)
     {
-      if(_context.Teacher.Any(t => t.Id == teacher.Id);
+      if(_context.Teachers.Any(t => t.Id == teacher.Id))
       {
-        var result = await _context.Teacher
-          .AsNoTracking().FirstOrDefaultAsync(t => t.Id == student.Id);
+        var result = await _context.Teachers
+          .AsNoTracking().FirstOrDefaultAsync(t => t.Id == teacher.Id);
           
         if(result != null)
-          _context.Teacher.Update(teacher);
+          _context.Teachers.Update(teacher);
       }
       else
       {
@@ -33,7 +33,7 @@ namespace SchoolManagment.Models
 
     public Task<Teacher?> GetByIdAsync(int id)
     {
-      return _context.teacher.FirstOrDefaultAsync(t => t.Id == id);
+      return _context.Teachers.FirstOrDefaultAsync(t => t.Id == id);
     }
 
     public async Task RemoveByIdAsync(int id)
@@ -42,7 +42,7 @@ namespace SchoolManagment.Models
       
       if(teacherToDelete != null) 
       {
-        _context.Teacher.Remove(teacherToDelete);
+        _context.Teachers.Remove(teacherToDelete);
         await _context.SaveChangesAsync();
       }
     }
@@ -54,7 +54,7 @@ namespace SchoolManagment.Models
 
     public bool Exist(int id)
     {
-      return _context.Teacher.Any(t => t.Id == id);
+      return _context.Teachers.Any(t => t.Id == id);
     }
   }
 }

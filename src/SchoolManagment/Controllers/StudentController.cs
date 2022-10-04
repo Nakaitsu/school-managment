@@ -68,7 +68,7 @@ public class StudentController : Controller
   {
     if (ModelState.IsValid)
     {
-      await _repository.SaveAsync(model.ToStudent()); // turar esse metodo
+      await _repository.SaveAsync(model.ToStudent()); // tirar esse metodo
       TempData.SetJson<Notification>("Notifications",
 
         new Notification(

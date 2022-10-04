@@ -38,24 +38,24 @@ namespace SchoolManagment.Controllers
     [HttpPost]
     [ActionName("SignUp")]
     public IActionResult SignupPost(SignUpViewModel model)
-  {
+    {
       if(ModelState.IsValid)
       {
-        var newClient = new Client(
-          model.FirstName,
-          model.LastName,
-          model.Birthdate
-        )
-
+        Client newClient = model.Role == UserRole.Student ?
+          new Student() : new Teacher();
+        
+        newClient.FirstName = model.FirstName;
+        newClient.LastName = model.LastName;
+        newClient.Birthdate = model.Birthdate;
         newClient.Email = model.Email;
         newClient.Login = model.Login;
         newClient.Password = model.Password;
         newClient.Role = model.Role;
-        
+
         if(model.Role == UserRole.Student)
         {
           _students.SaveAsync((Student)newClient);
-
+ 
           // retorna para o portal do aluno
         }
         else if(model.Role == UserRole.Teacher)
