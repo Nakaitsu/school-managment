@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SchoolManagment.Helpers;
 using SchoolManagment.Interfaces;
 using SchoolManagment.Models;
 
@@ -32,6 +33,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.UseSession();
+
+// app.UseMiddleware<UrlSessionMiddleware>();
 
 app.MapControllerRoute("SummaryFilterAndPage",
   "{controller}/{action}/{filter}/Page{page:int}");

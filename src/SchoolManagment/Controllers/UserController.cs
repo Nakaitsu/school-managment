@@ -7,20 +7,14 @@ namespace SchoolManagment.Controllers
 {
   public class UserController : Controller
   {
-    private readonly IUserSession _session;
-    
-
-    private readonly ISchoolRepository<Student> _students;
-    private readonly ISchoolRepository<Teacher> _teachers;
+    private readonly IUserSession _session;    
     // Essa controler precisa criar student e instructor
     // um repositorio para manipular os 2?
     // ou dois repositorios distintos ?
     // to fazendo errado ? 
-    public UserController(IUserSession session, ISchoolRepository<Teacher> teacherCtx, ISchoolRepository<Student> studentCtx)
+    public UserController(IUserSession session)
     {
       _session = session;
-      _students = studentCtx;
-      _teachers = teacherCtx;
     }
 
     [HttpPost]
@@ -54,14 +48,12 @@ namespace SchoolManagment.Controllers
 
         if(model.Role == UserRole.Student)
         {
-          _students.SaveAsync((Student)newClient);
- 
+          HttpContext.Session.SetString("url", HttpContext.Request.Path.ToString());
+          return RedirectToActionPreserveMethod("Create", "Student", newClient);
           // retorna para o portal do aluno
         }
         else if(model.Role == UserRole.Teacher)
         {
-          _teachers.SaveAsync((Teacher)newClient);
-
           // retorna para o portal do professor
         }
         
