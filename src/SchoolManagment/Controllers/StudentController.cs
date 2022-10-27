@@ -69,6 +69,7 @@ namespace SchoolManagment.Controllers
       if (ModelState.IsValid)
       {
         await _repository.SaveAsync(model.ToStudent()); // tirar esse metodo
+        // await _repository.SaveAsync((Student)model);
 
         if(Request.Headers["Referer"].ToString().ToLower().Contains("student")) {
           TempData.SetJson<Notification>("Notifications",
@@ -92,7 +93,12 @@ namespace SchoolManagment.Controllers
               "Salvou e voltou para a home page",
               "Warning"));
           return RedirectToAction("Index", "Home");
+
+          // testar se o model tem as outras prop
+
           // redirecionar para o portal
+          // vai ter um if
+          //return RedirectToAction("Index", "Student", "Portal");
         }
       }
 

@@ -48,17 +48,18 @@ namespace SchoolManagment.Controllers
 
         if(model.Role == UserRole.Student)
         {
-          HttpContext.Session.SetString("url", HttpContext.Request.Path.ToString());
           return RedirectToActionPreserveMethod("Create", "Student", newClient);
+
           // retorna para o portal do aluno
+          // return RedirectToActionPreserveMethod("Create", "Instructor", "Portal", newClient);
         }
         else if(model.Role == UserRole.Teacher)
         {
           // retorna para o portal do professor
+          return RedirectToActionPreserveMethod("Create", "Instructor", newClient);
         }
         
         // posso salvar ele e 
-
         // salvar o student na base de dados
         // redirecionar ele para o portal do aluno
       }
