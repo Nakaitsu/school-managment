@@ -35,33 +35,21 @@ namespace SchoolManagment.Controllers
     {
       if(ModelState.IsValid)
       {
-        Client newClient = model.Role == UserRole.Student ?
-          new Student() : new Teacher();
-        
-        newClient.FirstName = model.FirstName;
-        newClient.LastName = model.LastName;
-        newClient.Birthdate = model.Birthdate;
-        newClient.Email = model.Email;
-        newClient.Login = model.Login;
-        newClient.Password = model.Password;
-        newClient.Role = model.Role;
+        User newUser = new User(model.Login, model.Email, model.Password);
+        newUser.Role = model.Role;
 
+        // armazena o usuario na sessao como logado
+        // redireciona para um portal e la eu pego o id do usuario e vinculo no RA
+        session.CreateSession(newUser);
+        
         if(model.Role == UserRole.Student)
         {
-          return RedirectToActionPreserveMethod("Create", "Student", newClient);
-
-          // retorna para o portal do aluno
-          // return RedirectToActionPreserveMethod("Create", "Instructor", "Portal", newClient);
+          return RedirectToActionPreserveMethod("Create", "Student", newUser);
         }
         else if(model.Role == UserRole.Teacher)
         {
-          // retorna para o portal do professor
-          return RedirectToActionPreserveMethod("Create", "Instructor", newClient);
+          return RedirectToActionPreserveMethod("Create", "Instructor", newUser);
         }
-        
-        // posso salvar ele e 
-        // salvar o student na base de dados
-        // redirecionar ele para o portal do aluno
       }
       
       return View(model); // Tira isso

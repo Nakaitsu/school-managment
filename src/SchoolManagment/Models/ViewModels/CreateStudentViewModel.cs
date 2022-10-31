@@ -13,10 +13,6 @@ namespace SchoolManagment.Models.ViewModels
     [StringLength(50, ErrorMessage = "Last name length can't be more than 8.")]
     public string LastName { get; set; }
 
-    [EmailAddress(ErrorMessage = "Enter a valid email")]
-    [StringLength(70)]
-    public string? Email { get; set; }
-
     [Required(ErrorMessage = "You must specify the student's age")]
     [DataType(DataType.Date)]
     [ValidateDate]

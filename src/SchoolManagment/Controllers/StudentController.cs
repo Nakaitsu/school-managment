@@ -9,12 +9,14 @@ namespace SchoolManagment.Controllers
 {
   public class StudentController : Controller
   {
-    private readonly ISchoolRepository<Student> _repository;
     public int PageItems = 10;
+    private readonly ISchoolRepository<Student> _repository;
+    private readonly IUserSession _session;
 
-    public StudentController(ISchoolRepository<Student> repo)
+    public StudentController(ISchoolRepository<Student> repo, IUserSession session)
     {
       _repository = repo;
+      _session = session;
     }
 
     public ViewResult Index(string? search, int page = 1)
@@ -68,8 +70,13 @@ namespace SchoolManagment.Controllers
     {
       if (ModelState.IsValid)
       {
-        await _repository.SaveAsync(model.ToStudent()); // tirar esse metodo
-        // await _repository.SaveAsync((Student)model);
+        Student newStudent = new Student(model.FirstName, model.LastName, model.Birthdate);
+
+        int id;
+        await _repository.SaveAsync(newStudent, id);
+
+        AcademicRegister RA = new AcademicRegister()
+
 
         if(Request.Headers["Referer"].ToString().ToLower().Contains("student")) {
           TempData.SetJson<Notification>("Notifications",
@@ -93,12 +100,6 @@ namespace SchoolManagment.Controllers
               "Salvou e voltou para a home page",
               "Warning"));
           return RedirectToAction("Index", "Home");
-
-          // testar se o model tem as outras prop
-
-          // redirecionar para o portal
-          // vai ter um if
-          //return RedirectToAction("Index", "Student", "Portal");
         }
       }
 

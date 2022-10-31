@@ -13,7 +13,30 @@ namespace SchoolManagment.Models
       _context = ctx;
     }
 
+    public void GetStudenti() {
+      _context.Students.
+    }
+
     public async Task SaveAsync(Student student)
+    {
+      if(_context.Students.Any(s => s.Id == student.Id))
+      {
+        var result = await _context.Students
+          .AsNoTracking().FirstOrDefaultAsync(s => s.Id == student.Id);
+          
+        if(result != null)
+          _context.Students.Update(student);
+      }
+      else
+      {
+        student.EnrollmentDate = DateTime.Now;
+        await _context.AddAsync(student);
+      }
+
+      await _context.SaveChangesAsync();
+    }
+
+    public async Task SaveAsync(Student student, out int studentId)
     {
       if(_context.Students.Any(s => s.Id == student.Id))
       {
