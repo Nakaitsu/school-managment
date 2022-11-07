@@ -24,8 +24,9 @@ namespace SchoolManagment.Models
     }
   }
 
-  enum UserRole
-  {
-    Student, Teacher, Admin 
-  }
+}
+
+public enum UserRole
+{
+  Student, Instructor, Admin 
 }

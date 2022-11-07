@@ -4,7 +4,7 @@ namespace SchoolManagment.Models
   {
     IQueryable<T> Items { get; }
 
-    Task SaveAsync(T model);
+    Task<int> SaveAsync(T model);
 
     Task RemoveByIdAsync(int id);
 

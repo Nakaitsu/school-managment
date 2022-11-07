@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolManagment.Models
 {
-  public abstract class Client : User
+  public abstract class Client
   {
     [StringLength(50)]
     public string FirstName { get; set; }
@@ -15,14 +15,14 @@ namespace SchoolManagment.Models
     [Column(TypeName = "Date")]
     public DateTime Birthdate { get; set; }
 
-    public Client(string firstName, string lastName, DateTime birthdate) : base(login: "", password: "")
+    public Client(string firstName, string lastName, DateTime birthdate)
     {
       FirstName = firstName;
       LastName = lastName;
       Birthdate = birthdate;
     }
 
-    public Client() : base(login: "", password: "")
+    public Client()
     {
 
     }

@@ -17,7 +17,7 @@
 
         <div class="container g-4">
 
-          <legend class="form-legend text-blue">User Account Informations</legend>
+          <legend class="form-legend text-blue">Account</legend>
 
           <div class="row">
 
@@ -50,38 +50,7 @@
         </div>
 
       </fieldset>
-
-      <fieldset class="form-field form-field-gray mb-3">
-
-        <div class="container g-4">
-
-          <legend class="form-legend text-blue">Personal Informations</legend>
-
-          <div class="row">
-
-            <div class="col-6 mb-2">
-              <label class="form-label" asp-for="FirstName">First Name</label>
-              <input class="form-control" asp-for="FirstName">
-              @Html.ValidationMessageFor(m => m.FirstName)
-            </div>
-
-            <div class="col-6 mb-2">
-              <label class="form-label" asp-for="LastName">Last Name</label>
-              <input class="form-control" asp-for="LastName">
-              @Html.ValidationMessageFor(m => m.LastName)
-            </div>
-
-            <div class="col-5 mb-2">
-              <label class="form-label" asp-for="Birthdate">Birthdate</label>
-              <input class="form-control" asp-for="Birthdate">
-              @Html.ValidationMessageFor(m => m.Birthdate)
-            </div>
-
-          </div>
-        </div>
-
-      </fieldset>
-
+      
       <fieldset class="form-field form-field-gray mb-3">
 
         <div class="container g-4">
@@ -96,8 +65,8 @@
             </div>
 
             <div class="form-check">
-              <input type="radio" class="form-check-input" asp-for="Role" value="Teacher">
-              <label class="form-check-label" asp-for="Role">Teacher</label>
+              <input type="radio" class="form-check-input" asp-for="Role" value="Instructor">
+              <label class="form-check-label" asp-for="Role">Instructor</label>
             </div>
 
             @Html.ValidationMessageFor(m => m.Role)

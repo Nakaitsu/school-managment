@@ -40,15 +40,15 @@ namespace SchoolManagment.Controllers
 
         // armazena o usuario na sessao como logado
         // redireciona para um portal e la eu pego o id do usuario e vinculo no RA
-        session.CreateSession(newUser);
+        _session.CreateSession(newUser);
         
         if(model.Role == UserRole.Student)
         {
-          return RedirectToActionPreserveMethod("Create", "Student", newUser);
+          return RedirectToAction("Create", "Student", newUser);
         }
-        else if(model.Role == UserRole.Teacher)
+        else if(model.Role == UserRole.Instructor)
         {
-          return RedirectToActionPreserveMethod("Create", "Instructor", newUser);
+          return RedirectToAction("Create", "Instructor", newUser);
         }
       }
       

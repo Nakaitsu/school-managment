@@ -13,18 +13,28 @@ namespace SchoolManagment.Models
       _context = ctx;
     }
 
-    public void GetStudenti() {
-      _context.Students.
+    public async Task CreateAcademicRegister(int userId, int academicId) {
+      await _context.StudentsAcademicRegisters.AddAsync(new StudentAcademicRegister(userId, academicId));
+      await _context.SaveChangesAsync();
     }
 
-    public async Task SaveAsync(Student student)
+    public async Task<StudentAcademicRegister> GetAcademicRegister(int userId) {
+      var SAR = await _context.StudentsAcademicRegisters.FirstOrDefaultAsync(SAR => SAR.UserId == userId);
+
+      if(SAR != null)
+        return SAR;
+
+      return default(StudentAcademicRegister);
+    }
+
+    public async Task<int> SaveAsync(Student student)
     {
-      if(_context.Students.Any(s => s.Id == student.Id))
+      if (_context.Students.Any(s => s.Id == student.Id))
       {
         var result = await _context.Students
           .AsNoTracking().FirstOrDefaultAsync(s => s.Id == student.Id);
-          
-        if(result != null)
+
+        if (result != null)
           _context.Students.Update(student);
       }
       else
@@ -34,25 +44,8 @@ namespace SchoolManagment.Models
       }
 
       await _context.SaveChangesAsync();
-    }
 
-    public async Task SaveAsync(Student student, out int studentId)
-    {
-      if(_context.Students.Any(s => s.Id == student.Id))
-      {
-        var result = await _context.Students
-          .AsNoTracking().FirstOrDefaultAsync(s => s.Id == student.Id);
-          
-        if(result != null)
-          _context.Students.Update(student);
-      }
-      else
-      {
-        student.EnrollmentDate = DateTime.Now;
-        await _context.AddAsync(student);
-      }
-
-      await _context.SaveChangesAsync();
+      return student.Id;
     }
 
     public Task<Student?> GetByIdAsync(int id)
@@ -63,8 +56,8 @@ namespace SchoolManagment.Models
     public async Task RemoveByIdAsync(int id)
     {
       var studentToDelete = await GetByIdAsync(id);
-      
-      if(studentToDelete != null) 
+
+      if (studentToDelete != null)
       {
         _context.Students.Remove(studentToDelete);
         await _context.SaveChangesAsync();

@@ -34,7 +34,7 @@ namespace SchoolManagment.Models
       }
     }
 
-    public Task SaveAsync(Course model)
+    public Task<int> SaveAsync(Course model)
     {
       throw new NotImplementedException();
     }
@@ -43,5 +43,6 @@ namespace SchoolManagment.Models
     {
       throw new NotImplementedException();
     }
+    
   }
 }

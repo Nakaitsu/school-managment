@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagment.Helpers;
+using SchoolManagment.Interfaces;
 using SchoolManagment.Models;
 using SchoolManagment.Models.ViewModels;
 
@@ -26,9 +27,7 @@ namespace SchoolManagment.Controllers
       if (!String.IsNullOrEmpty(search))
       {
         result = result
-          .Where(s => s.FirstName.Contains(search) || 
-            s.LastName.Contains(search) || 
-            (!String.IsNullOrEmpty(s.Email) && s.Email.Contains(search)));
+          .Where(s => s.FirstName.Contains(search) || s.LastName.Contains(search));
 
         return View(new SummaryViewModel {
           Items = result
@@ -72,23 +71,17 @@ namespace SchoolManagment.Controllers
       {
         Student newStudent = new Student(model.FirstName, model.LastName, model.Birthdate);
 
-        int id;
-        await _repository.SaveAsync(newStudent, id);
+        int id = await _repository.SaveAsync(newStudent);
 
-        AcademicRegister RA = new AcademicRegister()
+        // não está salvando o SAR no banco (a interface n tem o metodo)
+        StudentAcademicRegister SAR = new StudentAcademicRegister(_session.GetUser().Id, newStudent.Id);
 
-
-        if(Request.Headers["Referer"].ToString().ToLower().Contains("student")) {
+        if (Request.Headers["Referer"].ToString().ToLower().Contains("student") && _session.GetUser().Role == UserRole.Admin) {
           TempData.SetJson<Notification>("Notifications",
             new Notification(
               "Record saved",
               "The record was successfully saved in database",
               "Success"));
-          TempData.SetJson<Notification>("Notifications",
-            new Notification(
-              "TEST",
-              "Voltou porque tem student na rota",
-              "Warning"));
 
           return RedirectToAction(nameof(Index));
         }

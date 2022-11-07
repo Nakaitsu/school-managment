@@ -18,98 +18,84 @@ namespace SchoolManagment.Models
           new Student {
             FirstName = "Karl",
             LastName = "Branting",
-            Email = "karl@email.com",
             Birthdate = DateTime.Parse("05-05-2010"),
             EnrollmentDate = DateTime.Parse("21-04-2012")
           },
           new Student {
             FirstName = "Angie",
             LastName = "Northrop",
-            Email = "angel@email.com",
             Birthdate = DateTime.Parse("01-08-2011"),
             EnrollmentDate = DateTime.Parse("23-01-2013")
           },
           new Student {
             FirstName = "Pedro",
             LastName = "De La Hoya",
-            Email = "elpedro@email.com",
             Birthdate = DateTime.Parse("23-12-2011"),
             EnrollmentDate = DateTime.Parse("15-08-2013")
           },
           new Student {
             FirstName = "Tom",
             LastName = "Gurney",
-            Email = "tom22@email.com",
             Birthdate = DateTime.Parse("17-03-2007"),
             EnrollmentDate = DateTime.Parse("27-09-2010")
           },
           new Student {
             FirstName = "Jimmy",
             LastName = "Hopkins",
-            Email = "jimmyhopkins_29@email.com",
             Birthdate = DateTime.Parse("01-02-2009"),
             EnrollmentDate = DateTime.Parse("02-01-2010")
           },
           new Student {
             FirstName = "Eunice",
             LastName = "Pound",
-            Email = "eunice@email.com",
             Birthdate = DateTime.Parse("14-05-2004"),
             EnrollmentDate = DateTime.Parse("23-10-2009")
           },
           new Student {
             FirstName = "Peanut",
             LastName = "Romano",
-            Email = "peanut2_3@email.com",
             Birthdate = DateTime.Parse("16-04-2012"),
             EnrollmentDate = DateTime.Parse("13-03-2015")
           },
           new Student {
             FirstName = "Gloria",
             LastName = "Jackson",
-            Email = "gloriaj733@email.com",
             Birthdate = DateTime.Parse("09-05-2010"),
             EnrollmentDate = DateTime.Parse("10-04-2012")
           },
           new Student {
             FirstName = "Zoe",
             LastName = "Taylor",
-            Email = "ztaylor8@email.com",
             Birthdate = DateTime.Parse("22-11-2009"),
             EnrollmentDate = DateTime.Parse("20-07-2010")
           },
           new Student {
             FirstName = "Sheldon",
             LastName = "Thompson",
-            Email = "shell@email.com",
             Birthdate = DateTime.Parse("26-09-2007"),
             EnrollmentDate = DateTime.Parse("18-01-2008")
           },
           new Student {
             FirstName = "Gord",
             LastName = "Vendome",
-            Email = "gordven0291@email.com",
             Birthdate = DateTime.Parse("27-04-2011"),
             EnrollmentDate = DateTime.Parse("26-07-2012")
           },
           new Student {
             FirstName = "Davis",
             LastName = "White",
-            Email = "d2white@email.com",
             Birthdate = DateTime.Parse("20-05-2007"),
             EnrollmentDate = DateTime.Parse("13-03-2010")
           },
           new Student {
             FirstName = "Mandy",
             LastName = "Wiles",
-            Email = "mandyw9ile7@email.com",
             Birthdate = DateTime.Parse("06-06-2008"),
             EnrollmentDate = DateTime.Parse("12-05-2010")
           },
           new Student {
             FirstName = "Norton",
             LastName = "Williams",
-            Email = "n7will@email.com",
             Birthdate = DateTime.Parse("12-11-2012"),
             EnrollmentDate = DateTime.Parse("10-02-2014")
           }
